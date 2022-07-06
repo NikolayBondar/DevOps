@@ -1,0 +1,10 @@
+0 /var/log/landscape/sysinfo.log
+0 /var/log/ubuntu-advantage.log
+0 /var/log/btmp
+0 /var/log/wtmp
+5551 /var/log/alternatives.log
+11926 /var/log/apt/history.log
+25028 /var/log/apt/eipp.log.xz
+66206 /var/log/apt/term.log
+131045 /var/log/dpkg.log
+292292 /var/log/lastlog
