@@ -1,0 +1,4 @@
+PID USER FD NAME
+1281 nikolay 0u /dev/pts/1
+1281 nikolay 1u /dev/pts/1
+1281 nikolay 2u /dev/pts/1
