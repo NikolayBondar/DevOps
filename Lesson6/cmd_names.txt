@@ -1,0 +1,10 @@
+[.exe
+addgnupghome
+applygnupgdefaults
+arch.exe
+astextplain
+autopoint
+awk.exe
+b2sum.exe
+backup
+base32.exe
