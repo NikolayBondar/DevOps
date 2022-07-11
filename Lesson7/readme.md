@@ -3,6 +3,6 @@
 
 Скрипт status1.sh то же что и status.sh но другая реализация.
 
-Скрипт kill18.sh посылает сигнал SIGTSTP (-20) и выводит в командную строку в течение  30 секунд “process $name $pid suspended”.
+Скрипт kill20.sh посылает сигнал SIGTSTP (-20) и выводит в командную строку в течение  30 секунд “process $name $pid suspended”.
 
 Работа с командой скрин см. скриншоты screen.png, screen1.png, executables.txt
