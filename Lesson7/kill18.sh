@@ -10,4 +10,3 @@ echo "process $name $id suspended"
 
 sleep 30
 
-`kill -19 $id`

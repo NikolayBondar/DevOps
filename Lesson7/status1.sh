@@ -1,11 +1,14 @@
 #!/bin/bash
 
-id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4)
+id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4 | tr -d '/n')
+stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d ' ' -f 3)
 
 name=$(systemctl status apache2 | grep 'apache2.service -' | tr -s ' ' | cut -d '-' -f2)
 
-if [ -n $id ] 
+if [ -z $id ] || [ $stat == "inactive" ]
 then
+  echo "Process not found or Inactive"
+else
 
   `kill -15 $id`
 
@@ -15,15 +18,12 @@ then
 
   n=$(ps -aux | grep $id | grep -v grep | wc -l)
 
-  echo "$n"
-
   if [ "$n" -gt 0 ]	
 
   then
 
     `kill -9 $id`
   fi
-else echo "Process not found"
 fi 
 
 
