@@ -215,6 +215,7 @@
 /usr/bin/manifest
 /usr/bin/zcat
 /usr/bin/sg_verify
+/usr/bin/xclip-cutfile
 /usr/bin/sg_rmsn
 /usr/bin/sg_turs
 /usr/bin/ntfscmp
@@ -319,6 +320,7 @@
 /usr/bin/symcryptrun
 /usr/bin/ptardiff
 /usr/bin/sg_map
+/usr/bin/xclip
 /usr/bin/zforce
 /usr/bin/dfu-tool
 /usr/bin/x86_64-linux-gnu-ld.bfd
@@ -501,6 +503,7 @@
 /usr/bin/sensible-browser
 /usr/bin/mailmail3
 /usr/bin/netstat
+/usr/bin/xclip-pastefile
 /usr/bin/kmod
 /usr/bin/pbput
 /usr/bin/du
@@ -513,6 +516,7 @@
 /usr/bin/bootctl
 /usr/bin/sha1sum
 /usr/bin/dpkg-trigger
+/usr/bin/xclip-copyfile
 /usr/bin/wall
 /usr/bin/pinentry-curses
 /usr/bin/grub-mkimage
