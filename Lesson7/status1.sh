@@ -10,7 +10,7 @@ then
   echo "Process not found or Inactive"
 else
 
-  `kill -15 $id`
+  `systemctl stop apache2`
 
   echo "Process $name $id stopped"
 
@@ -22,8 +22,7 @@ else
 
   then
 
-    `kill -9 $id`
+    `kill -15 $id`
   fi
 fi 
-
 
