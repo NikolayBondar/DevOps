@@ -1,29 +1,32 @@
 #!/bin/bash
+#Находим шв процесса
+id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
+# Существует ли id
+if [ -z $id ]; then
 
-id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1)
+echo "Proces Apache2 not found"
 
-name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
+else
+# Bvz ghjwtccf
+  name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
 
-echo "$id"
+#  echo "$id"
 
-echo "$name"
+#  echo "$name"
 
-`kill -15 $id`
+  `kill -15 $id`
 
-echo "Process $name $id stopped"
+  echo "Process $name $id stopped"
 
-sleep 10
+  sleep 10
+# Проверяем наличие процесса с нужным id
+  n=$(ps -aux | grep $id | grep -v grep | wc -l)
 
-echo "Done"
+  if [ "$n" -gt 0 ]	
 
-n=$(ps -aux | grep $id | grep -v grep | wc -l)
+  then
+    `kill -9 $id`
+  fi
 
-echo "$n"
-
-if [ "$n" -gt 0 ]	
-
-then
-
-  `kill -9 $id`
 fi
 

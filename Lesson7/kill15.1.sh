@@ -4,7 +4,7 @@ id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4)
 
 name=$(systemctl status apache2 | grep 'apache2.service -' | tr -s ' ' | cut -d '-' -f2)
 
-if [ -z $id ] 
+if [ -n $id ] 
 then
 
   `kill -15 $id`
