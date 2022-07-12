@@ -16,9 +16,10 @@ else
 
   sleep 10
 
-  n=$(ps -aux | grep $id | grep -v grep | wc -l)
+  n=$(ps -p $id | wc -l)
 
-  if [ "$n" -gt 0 ]	
+
+  if [ "$n" -gt 1 ]	
 
   then
 

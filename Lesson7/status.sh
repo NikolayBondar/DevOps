@@ -20,10 +20,10 @@ else
   sleep 10
 
 # Проверяем наличие процесса с нужным id
-  n=$(ps -aux | grep $id | grep -v grep | wc -l)
+  n=$(ps -p $id | wc -l)
 
 #Если процесс не остановился
-  if [ "$n" -gt 0 ]	
+  if [ "$n" -gt 1 ]	
 
   then
     `kill -15 $id`
