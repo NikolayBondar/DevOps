@@ -10,33 +10,36 @@ pipeline {
 
         stage('Apache2') {
             steps {
-              id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4 | tr -d '/n')
-              stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d ' ' -f 3)
+#Находим id процесса
+id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
 
-              name=$(systemctl status apache2 | grep 'apache2.service -' | tr -s ' ' | cut -d '-' -f2)
+# Существует ли id
+if [ -z $id ]; then
 
-              if [ -z $id ] || [ $stat == "inactive" ]
-              then
-              echo "Process not found or Inactive"
-              else
+echo "Proces Apache2 not found"
 
-              `systemctl stop apache2`
+else
+# Название приложения
+  name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
 
-              echo "Process $name $id stopped"
 
-              sleep 10
+  `systemctl stop apache2`
 
-              n=$(ps -p $id | wc -l)
+  echo "Process $name $id stopped"
 
-  
-              if [ "$n" -gt 1 ]	
+  sleep 10
 
-              then
+# Проверяем наличие процесса с нужным id
+  n=$(ps -p $id | wc -l)
 
-              `kill -15 $id`
-              fi
-              `systemctl start apache2`
-              fi                 
+#Если процесс не остановился
+  if [ "$n" -gt 1 ]	
+
+  then
+    `kill -15 $id`
+  fi
+  `systemctl start apache2`
+fi
             }
         }
     }
