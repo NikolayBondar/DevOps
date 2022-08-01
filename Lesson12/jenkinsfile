@@ -13,23 +13,7 @@ pipeline {
                  
                 sh"  id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d ' ' -f2 | head -n 1 | tr -d '/n')"
 
-                sh''' if [ -z $id ]; then
-
-                      echo "Proces Apache2 not found"
-
-                     else '''
-
-                sh" name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d ' ' -f11 | head -n 1)"
-
-                sh'''`systemctl stop apache2`
-                echo "Process $name $id stopped"
-
-                sleep 10
-
-                `systemctl start apache2`
-                echo "Process $name Started"
-
-                '''
+                
                            
             }
         }
