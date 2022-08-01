@@ -13,7 +13,7 @@ pipeline {
 
 sh '''#!/bin/bash
 
-id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
+  id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
 stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d \' \' -f 3)
 
 name=$(systemctl status apache2 | grep \'apache2.service -\' | tr -s \' \' | cut -d \'-\' -f2)
@@ -23,7 +23,7 @@ then
   echo "Process not found or Inactive"
 else
 
-  `systemctl stop apache2`
+  `systemctl stop apache2.service`
 
   echo "Process $name $id stopped"
 
@@ -37,7 +37,7 @@ else
   then
   echo "Process $name Restart"
  
-    `systemctl start apache2`    
+  `systemctl start apache2.service`    
   fi
 fi
 id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
