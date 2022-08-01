@@ -9,37 +9,37 @@ pipeline {
 
         stage('Apache2') {
             steps {
-              sh '''            
-                  #Находим id процесса
-                  id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
+                        
+              sh '    #Находим id процесса'
+              sh '    id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')'
 
-                  # Существует ли id
-                  if [ -z $id ]; then
+              sh '    # Существует ли id'
+              sh '    if [ -z $id ]; then'
 
-                    echo "Proces Apache2 not found"
+              sh '      echo "Proces Apache2 not found"'
 
-                   else
-                    # Название приложения
-                    name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
+              sh '     else'
+              sh '      # Название приложения'
+              sh '      name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)'
 
 
-                    `systemctl stop apache2`
+              sh '      `systemctl stop apache2`'
 
-                    echo "Process $name $id stopped"
+              sh '      echo "Process $name $id stopped"'
 
-                    sleep 10
+              sh '      sleep 10'
 
-                    # Проверяем наличие процесса с нужным id
-                    n=$(ps -p $id | wc -l)
+              sh '      # Проверяем наличие процесса с нужным id'
+              sh '      n=$(ps -p $id | wc -l)'
 
-                    #Если процесс не остановился
-                  if [ "$n" -gt 1 ]	
-                  then
-                    `kill -15 $id`
-                  fi
-                `systemctl start apache2`
-                fi
-               '''
+              sh '      #Если процесс не остановился'
+              sh '    if [ "$n" -gt 1 ]	'
+              sh '    then'
+              sh '      `kill -15 $id`'
+              sh '     fi'
+              sh '   `systemctl start apache2`'
+              sh '  fi'
+              
             }
         }
     }
