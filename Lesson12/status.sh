@@ -29,8 +29,8 @@ id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4 | tr -d '/
 stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d ' ' -f 3)
 if [ -z $id ] || [ $stat == "inactive" ]
 then
-  echo "Process not found or Inactive"
-else
+  echo "Build status Error"
+else echo "Build status OKS"
 
 fi 
 
