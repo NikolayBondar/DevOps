@@ -22,15 +22,17 @@ else
   if [ "$n" -eq 1 ]	
 
   then
+  echo "Process $name Restart"
+ 
     `systemctl start apache2`    
   fi
-
+fi
 id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4 | tr -d '/n')
 stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d ' ' -f 3)
+
 if [ -z $id ] || [ $stat == "inactive" ]
 then
   echo "Build status Error"
-else echo "Build status OKS"
-
+else echo "Build status OK"
 fi 
 
