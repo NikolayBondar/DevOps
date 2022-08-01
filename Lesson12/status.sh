@@ -19,11 +19,18 @@ else
   n=$(ps -p $id | wc -l)
 
 
-  if [ "$n" -gt 1 ]	
+  if [ "$n" -eq 1 ]	
 
   then
-
-    `kill -15 $id`
+    `systemctl start apache2`    
   fi
+
+id=$(systemctl status apache2 | grep PID | tr -s ' ' | cut -d ' ' -f4 | tr -d '/n')
+stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d ' ' -f 3)
+if [ -z $id ] || [ $stat == "inactive" ]
+then
+  echo "Process not found or Inactive"
+else
+
 fi 
 

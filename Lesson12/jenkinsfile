@@ -13,32 +13,32 @@ pipeline {
 
               sh '''#!/bin/bash
 
-id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
-stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d \' \' -f 3)
+                id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
+                stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d \' \' -f 3)
 
-name=$(systemctl status apache2 | grep \'apache2.service -\' | tr -s \' \' | cut -d \'-\' -f2)
+                name=$(systemctl status apache2 | grep \'apache2.service -\' | tr -s \' \' | cut -d \'-\' -f2)
 
-if [ -z $id ] || [ $stat == "inactive" ]
-then
-  echo "Process not found or Inactive"
-else
+                if [ -z $id ] || [ $stat == "inactive" ]
+                then
+                  echo "Process not found or Inactive"
+                else
 
-  `systemctl stop apache2`
+                `systemctl stop apache2`
 
-  echo "Process $name $id stopped"
+                echo "Process $name $id stopped"
 
-  sleep 10
+                sleep 10
 
-  n=$(ps -p $id | wc -l)
+                n=$(ps -p $id | wc -l)
 
 
-  if [ "$n" -gt 1 ]	
+                if [ "$n" -gt 1 ]	
 
-  then
+                then
 
-    `kill -15 $id`
-  fi
-fi'''               
+                `kill -15 $id`
+                fi
+                fi'''               
                            
             }
         }
