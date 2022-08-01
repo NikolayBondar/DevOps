@@ -9,32 +9,30 @@ pipeline {
 
         stage('Apache2') {
             steps {
-<<<<<<< HEAD
               sh '''            
                   #Находим id процесса
                   id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
 
                   # Существует ли id
                   if [ -z $id ]; then
-=======
 
 id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
 
 
 if [ -z $id ]; then
->>>>>>> 5061c0b85290292ab468bb046e534b50fdb3e326
+
 
                     echo "Proces Apache2 not found"
 
-<<<<<<< HEAD
+
                    else
                     # Название приложения
                     name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
-=======
+
 else
 
   name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
->>>>>>> 5061c0b85290292ab468bb046e534b50fdb3e326
+
 
 
                     `systemctl stop apache2`
@@ -43,7 +41,7 @@ else
 
                     sleep 10
 
-<<<<<<< HEAD
+
                     # Проверяем наличие процесса с нужным id
                     n=$(ps -p $id | wc -l)
 
@@ -55,7 +53,7 @@ else
                 `systemctl start apache2`
                 fi
                '''
-=======
+
 
   n=$(ps -p $id | wc -l)
 
@@ -67,7 +65,7 @@ else
   fi
   `systemctl start apache2`
 fi
->>>>>>> 5061c0b85290292ab468bb046e534b50fdb3e326
+
             }
         }
     }
