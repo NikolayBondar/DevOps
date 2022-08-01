@@ -9,37 +9,37 @@ pipeline {
 
         stage('Apache2') {
             steps {
-                        
-              sh '    #Находим id процесса'
-              sh '    id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')'
+              sh '''            
+                  #Находим id процесса
+                  id=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f2 | head -n 1 | tr -d '/n')
 
-              sh '    # Существует ли id'
-              sh '    if [ -z $id ]; then'
+                  # Существует ли id
+                  if [ -z $id ]; then
 
-              sh '      echo "Proces Apache2 not found"'
+                    echo "Proces Apache2 not found"
 
-              sh '     else'
-              sh '      # Название приложения'
-              sh '      name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)'
+                   else
+                    # Название приложения
+                    name=$(ps -aux | grep '[a]pache2 -k start' | awk '$1=$1' | cut -d " " -f11 | head -n 1)
 
 
-              sh '      `systemctl stop apache2`'
+                    `systemctl stop apache2`
 
-              sh '      echo "Process $name $id stopped"'
+                    echo "Process $name $id stopped"
 
-              sh '      sleep 10'
+                    sleep 10
 
-              sh '      # Проверяем наличие процесса с нужным id'
-              sh '      n=$(ps -p $id | wc -l)'
+                    # Проверяем наличие процесса с нужным id
+                    n=$(ps -p $id | wc -l)
 
-              sh '      #Если процесс не остановился'
-              sh '    if [ "$n" -gt 1 ]	'
-              sh '    then'
-              sh '      `kill -15 $id`'
-              sh '     fi'
-              sh '   `systemctl start apache2`'
-              sh '  fi'
-              
+                    #Если процесс не остановился
+                  if [ "$n" -gt 1 ]	
+                  then
+                    `kill -15 $id`
+                  fi
+                `systemctl start apache2`
+                fi
+               '''
             }
         }
     }
