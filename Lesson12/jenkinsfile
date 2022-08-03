@@ -23,7 +23,7 @@ pipeline {
                 echo "Process not found or Inactive"
               else
 
-              `systemctl stop apache2.service`
+              `sudo systemctl stop apache2.service`
 
               echo "Process $name $id stopped"
 
@@ -37,7 +37,7 @@ pipeline {
                 then
                   echo "Process $name Restart"
  
-                  `systemctl start apache2.service`    
+                  `sudo systemctl start apache2.service`    
                 fi
              fi
              id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
