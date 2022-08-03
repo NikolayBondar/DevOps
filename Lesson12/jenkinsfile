@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                echo 'The First Jenkins file'
             }
         }
 
         stage('Apache2') {
             steps {
-                 
+               
 
                sh '''#!/bin/bash
 
-               id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
+              id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
               stat=$(systemctl status apache2| grep Active | tr -s " " | cut -d \' \' -f 3)
 
               name=$(systemctl status apache2 | grep \'apache2.service -\' | tr -s \' \' | cut -d \'-\' -f2)
@@ -23,7 +23,7 @@ pipeline {
                 echo "Process not found or Inactive"
               else
 
-              `systemctl stop apache2.service`
+              `sudo systemctl stop apache2.service`
 
               echo "Process $name $id stopped"
 
@@ -37,7 +37,7 @@ pipeline {
                 then
                   echo "Process $name Restart"
  
-                  `systemctl start apache2.service`    
+                  `sudo systemctl start apache2.service`    
                 fi
              fi
              id=$(systemctl status apache2 | grep PID | tr -s \' \' | cut -d \' \' -f4 | tr -d \'/n\')
