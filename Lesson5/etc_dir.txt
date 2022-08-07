@@ -1,4 +1,0 @@
-/etc/pkcs11
-/etc/pki
-/etc/profile.d
-/etc/ssh
