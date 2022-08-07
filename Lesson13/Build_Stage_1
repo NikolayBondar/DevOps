@@ -1,0 +1,31 @@
+package _Self.buildTypes
+
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+
+object BuildStage1 : BuildType({
+    name = "Build_Stage_1"
+
+    publishArtifacts = PublishMode.SUCCESSFUL
+
+    vcs {
+        root(HttpsGithubComNikolayBondarDevOpsGitRefsHeadsMain)
+    }
+
+    steps {
+        script {
+            scriptContent = "./Lesson5/checkDir.sh"
+        }
+        script {
+            scriptContent = "./Lesson5/findEx.sh"
+        }
+        script {
+            scriptContent = "./Lesson5/sort.sh"
+        }
+    }
+triggers {
+    vcs {
+    }
+}
+})
