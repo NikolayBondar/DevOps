@@ -7,8 +7,6 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 object BuildStage1 : BuildType({
     name = "Build_Stage_1"
 
-    publishArtifacts = PublishMode.SUCCESSFUL
-
     vcs {
         root(HttpsGithubComNikolayBondarDevOpsGitRefsHeadsMain)
     }
@@ -24,8 +22,9 @@ object BuildStage1 : BuildType({
             scriptContent = "./Lesson5/sort.sh"
         }
     }
-triggers {
-    vcs {
+
+    triggers {
+        vcs {
+        }
     }
-}
 })
