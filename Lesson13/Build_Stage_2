@@ -28,14 +28,13 @@ object BuildStage2 : BuildType({
             scriptContent = "./Lesson6/read_file.sh"
         }
     }
-
-    triggers {
-        finishBuildTrigger {
-            buildType = "${BuildStage1.id}"
-            successfulOnly = true
-        }
+triggers {
+    finishBuildTrigger {
+        buildType = "${BuildStage1.id}"
+        successfulOnly = true
+        branchFilter = "+:*"
     }
-
+}
     dependencies {
         snapshot(BuildStage1) {
             onDependencyFailure = FailureAction.FAIL_TO_START
