@@ -35,4 +35,10 @@ object BuildStage2 : BuildType({
             successfulOnly = true
         }
     }
+
+    dependencies {
+        snapshot(BuildStage1) {
+            onDependencyFailure = FailureAction.FAIL_TO_START
+        }
+    }
 })
