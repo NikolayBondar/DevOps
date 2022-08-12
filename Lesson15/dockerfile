@@ -1,0 +1,15 @@
+FROM spack/centos7
+
+LABEL email="nikolai.bondar@gmail.com"
+
+ENV status="First Dockerfile"
+ENV date="12.08.2022"
+
+RUN yum update && yum upgrade -y && yum install net-tools -y && yum install python3 -y
+
+COPY . ./files
+
+CMD ["sh", "./descr.sh"]
+CMD ["sh", "./find_ex.sh"]
+
+VOLUME /devops_volume
