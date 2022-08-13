@@ -1,4 +1,4 @@
-FROM spack/centos7
+FROM centos/httpd-24-centos7
 
 LABEL email="nikolai.bondar@gmail.com"
 
