@@ -1,13 +1,31 @@
-FROM centos:latest
+FROM centos:7
+
+WORKDIR /app
 
 LABEL email="nikolai.bondar@gmail.com"
 
 ENV status="First Dockerfile"
+
 ENV date="12.08.2022"
 
-#RUN apk update && apk install net-tools -y && apk install python3 -y
+COPY . .
 
-COPY . ./files
+RUN yum -y update && yum -y install net-tools && yum -y install  python3 && yum -y install  java-11-openjdk  && yum -y install  wget && yum clean all
+
+#RUN yum -y install  wget && yum -y install systemd
+
+RUN /bin/sh -c "wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo"
+
+RUN /bin/sh -c "rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key"
+
+RUN yum -y install jenkins 
+
+#RUN systemctl daemon-reload
+#RUN systemctl enable jenkins
+#RUN systemctl start jenkins
+
+EXPOSE 8080
 
 CMD ["sh", "descr.sh"]
 CMD ["sh", "find.sh"]
