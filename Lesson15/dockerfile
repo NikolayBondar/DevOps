@@ -1,15 +1,15 @@
-FROM centos/httpd-24-centos7
+FROM centos:latest
 
 LABEL email="nikolai.bondar@gmail.com"
 
 ENV status="First Dockerfile"
 ENV date="12.08.2022"
 
-RUN yum update && yum upgrade -y && yum install net-tools -y && yum install python3 -y
+#RUN apk update && apk install net-tools -y && apk install python3 -y
 
 COPY . ./files
 
-CMD ["sh", "./descr.sh"]
-CMD ["sh", "./find_ex.sh"]
+CMD ["sh", "descr.sh"]
+CMD ["sh", "find.sh"]
 
 VOLUME /devops_volume
