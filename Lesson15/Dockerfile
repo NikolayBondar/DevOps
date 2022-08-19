@@ -21,13 +21,8 @@ RUN /bin/sh -c "rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 RUN yum -y install jenkins 
 
-#RUN systemctl daemon-reload
-#RUN systemctl enable jenkins
-#RUN systemctl start jenkins
-
 EXPOSE 8080
 
-#CMD ["sh", "find.sh"]
 CMD [ "/bin/bash", "find.sh" ]
 
 VOLUME /devops_volume
