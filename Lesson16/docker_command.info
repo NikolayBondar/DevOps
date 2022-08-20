@@ -1,0 +1,2 @@
+docker build -t web:4 .
+docker run -d -p 8085:80 -v data:/devops_volume -v "/home/nikolay/DevOps/Lesson16:/app" --name devopsweb4.1 web:4
