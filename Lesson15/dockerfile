@@ -27,7 +27,6 @@ RUN yum -y install jenkins
 
 EXPOSE 8080
 
-#CMD ["sh", "find.sh"]
 CMD [ "/bin/bash", "find.sh" ]
 
 VOLUME /devops_volume
