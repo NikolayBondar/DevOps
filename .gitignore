@@ -1,4 +1,5 @@
 /Lesson23/Error
+/#*
 **/.terraform/*
 *.tfstate
 *.tfstate.*
