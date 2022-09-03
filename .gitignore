@@ -8,3 +8,5 @@ terraform.rc
 *.tfvars
 *.tfvars.json
 @*.*
+.terraform
+.terraform.lock.hcl
