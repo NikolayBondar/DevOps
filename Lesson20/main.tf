@@ -36,6 +36,19 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
   name                = "myNetworkSecurityGroup"
   location            = azurerm_resource_group.azure-terraform-test.location
   resource_group_name = azurerm_resource_group.azure-terraform-test.name
+
+security_rule {
+    name                       = "RDP"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3389"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
 }
 
 # Create network interface
@@ -83,10 +96,9 @@ resource "azurerm_windows_virtual_machine" "my_terraform_vm" {
   location              = azurerm_resource_group.azure-terraform-test.location
   resource_group_name   = azurerm_resource_group.azure-terraform-test.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
-  size                  = "DS1_v2"
+  size                  = "Standard_DS1_v2"
   admin_username      = "azureuser"
-  admin_password      = "P@$$w0rD"
-
+  admin_password      = "P@$$w0rd1234!"
   os_disk {
     name                 = "myOsDisk"
     caching              = "ReadWrite"

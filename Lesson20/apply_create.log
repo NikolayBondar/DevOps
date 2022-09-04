@@ -1,0 +1,52 @@
+[0m[1mrandom_pet.rg_name: Creating...[0m[0m
+[0m[1mrandom_pet.rg_name: Creation complete after 0s [id=azure-terraform-test-capital-tuna][0m
+[0m[1mazurerm_resource_group.azure-terraform-test: Creating...[0m[0m
+[0m[1mazurerm_resource_group.azure-terraform-test: Creation complete after 2s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna][0m
+[0m[1mazurerm_public_ip.my_terraform_public_ip: Creating...[0m[0m
+[0m[1mazurerm_virtual_network.my_terraform_network: Creating...[0m[0m
+[0m[1mazurerm_network_security_group.my_terraform_nsg: Creating...[0m[0m
+[0m[1mrandom_id.random_id: Creating...[0m[0m
+[0m[1mrandom_id.random_id: Creation complete after 0s [id=o77b63lWXWc][0m
+[0m[1mazurerm_storage_account.my_storage_account: Creating...[0m[0m
+[0m[1mazurerm_public_ip.my_terraform_public_ip: Creation complete after 3s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/publicIPAddresses/myPublicIP][0m
+[0m[1mazurerm_network_security_group.my_terraform_nsg: Creation complete after 4s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup][0m
+[0m[1mazurerm_virtual_network.my_terraform_network: Creation complete after 5s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/virtualNetworks/myVnet][0m
+[0m[1mazurerm_subnet.my_terraform_subnet: Creating...[0m[0m
+[0m[1mazurerm_subnet.my_terraform_subnet: Creation complete after 4s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet][0m
+[0m[1mazurerm_network_interface.my_terraform_nic: Creating...[0m[0m
+[0m[1mazurerm_storage_account.my_storage_account: Still creating... [10s elapsed][0m[0m
+[0m[1mazurerm_network_interface.my_terraform_nic: Creation complete after 2s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/networkInterfaces/myNIC][0m
+[0m[1mazurerm_network_interface_security_group_association.example: Creating...[0m[0m
+[0m[1mazurerm_network_interface_security_group_association.example: Creation complete after 1s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/networkInterfaces/myNIC|/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup][0m
+[0m[1mazurerm_storage_account.my_storage_account: Still creating... [20s elapsed][0m[0m
+[0m[1mazurerm_storage_account.my_storage_account: Creation complete after 26s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Storage/storageAccounts/diaga3bedbeb79565d67][0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Creating...[0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [10s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [20s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [30s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [40s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [50s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m0s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m10s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m21s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m31s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m41s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [1m51s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m1s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m11s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m21s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m31s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m41s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [2m51s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [3m1s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [3m11s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [3m21s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Still creating... [3m31s elapsed][0m[0m
+[0m[1mazurerm_windows_virtual_machine.my_terraform_vm: Creation complete after 3m37s [id=/subscriptions/081ed6ef-2131-41a4-9504-10080c3ded90/resourceGroups/azure-terraform-test-capital-tuna/providers/Microsoft.Compute/virtualMachines/Win10Pro][0m
+[0m[1m[32m
+Apply complete! Resources: 11 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mpublic_ip_address = "40.68.84.226"
+resource_group_name = "azure-terraform-test-capital-tuna"
