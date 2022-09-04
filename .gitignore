@@ -1,4 +1,5 @@
 /Lesson23/Error
+/#*
 **/.terraform/*
 *.tfstate
 *.tfstate.*
@@ -7,3 +8,6 @@ terraform.rc
 *.tfvars
 *.tfvars.json
 @*.*
+.terraform
+.terraform.lock.hcl
+*.tfplan
